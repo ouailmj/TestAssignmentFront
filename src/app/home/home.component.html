@@ -1,0 +1,43 @@
+<!-- movie-search.component.html -->
+<header>
+    <a href="#"><h1>Movies</h1></a>
+    <div class="search-container">
+        <input
+            type="text"
+            placeholder="Search"
+            class="search"
+            [(ngModel)]="searchTerm"
+            name="search"
+            (focusin)="searchMovies(true, '')"
+            (ngModelChange)="searchMovies(true, '')"
+        />
+        <button type="submit" (click)="searchMovies(false, '')" class="btn btn-link link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+                 viewBox="0 0 16 16">
+                <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+        </button>
+    </div>
+    <div *ngIf="showSuggestions" class="result-box">
+        <p *ngIf="lastSearchedKeywords != null && lastSearchedKeywords.length > 0">You recently typed</p>
+        <ul *ngIf="lastSearchedKeywords != null && lastSearchedKeywords.length > 0">
+            <li *ngFor="let word of lastSearchedKeywords" (click)="searchMovies(false, word)">{{word}}</li>
+        </ul>
+        <p *ngIf="searchedMovies != null && searchedMovies.length > 0">Movies</p>
+        <ul *ngIf="searchedMovies != null && searchedMovies.length > 0">
+            <li *ngFor="let movie of searchedMovies" (click)="searchMovies(false, movie.title)">{{movie.title}} ({{movie.year}})</li>
+        </ul>
+        <p *ngIf="recommendedKeywords != null && recommendedKeywords.length > 0">People liked</p>
+        <ul *ngIf="recommendedKeywords != null && recommendedKeywords.length > 0">
+            <li *ngFor="let word of recommendedKeywords" (click)="searchMovies(false, word)">{{word}}</li>
+        </ul>
+    </div>
+</header>
+<main>
+    <div *ngFor="let movie of movies; let i = index" class="movie" (click)="handleMovieClickEvent(movie.id, movie.title)">
+        <span *ngFor="let genre of movie.genres" class="badge bg-secondary"> {{genre}} </span>
+        <img [src]="movie.imageUrl" alt="{{ movie.title }}"/>
+        <h2>{{ movie.title }} ({{ movie.year }})</h2>
+    </div>
+</main>

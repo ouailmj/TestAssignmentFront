@@ -1,0 +1,140 @@
+/* Reset some default styles for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling for the entire body */
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/* Styling for the header section */
+header {
+    width: 100%;
+    height: 50px;
+    background: rgb(38, 39, 38);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid #ccc;
+}
+
+header h1 {
+    margin: 0 20px;
+    color: #fff;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header form {
+    display: flex;
+    align-items: center;
+}
+
+/* Styling for the search input field */
+#search {
+    width: 230px;
+    height: 30px;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 20px;
+    padding-left: 15px;
+}
+
+/* Styling for the main content section */
+main {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main div {
+    width: 250px;
+    height: 400px;
+    margin: 19px 15px;
+    background: red;
+}
+
+/* Styling for images inside divs */
+img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}
+
+/* Styling for h2 headings inside divs */
+h2 {
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+}
+
+/* Styling for links with class 'link' */
+.link {
+    color: white;
+    position: relative;
+    top: -2px;
+    left: 8px;
+}
+
+/* Additional styles for the header */
+header {
+    position: relative;
+}
+
+/* Styling for search results */
+.result-box {
+    position: absolute;
+    top: 50px;
+    background-color: white;
+    width: 100%;
+    border: 1px solid #999;
+}
+
+.result-box p {
+    border-top: 1px solid #999;
+    padding: 4px 5px;
+}
+
+.result-box ul {
+    border-top: 1px solid #999;
+}
+
+.result-box ul li {
+    list-style: none;
+    border-radius: 3px;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-top: 1px solid #999;
+    font-weight: bold;
+    font-size: 17px;
+    margin-left: 10px;
+}
+
+.result-box ul li:first-child {
+    border-top: none;
+}
+
+.result-box ul li:hover {
+    background-color: #e9f3ff;
+}
+
+/* Styling for badge elements */
+.badge {
+    padding: 10px;
+    border-radius: 0;
+}
+
+/* Styling for elements with class 'movie' */
+.movie {
+    cursor: pointer;
+}

@@ -1,0 +1,33 @@
+<main class="container">
+
+  <!-- Left Column / Headphones Image -->
+  <div class="left-column">
+    <img data-image="black" [src]="imageUrl" alt="">
+  </div>
+
+
+  <!-- Right Column -->
+  <div class="right-column">
+
+    <!-- Product Description -->
+    <div class="product-description">
+      <h1>{{movie?.title}} ({{movie?.year}})</h1>
+    </div>
+
+    <!-- Product Configuration -->
+    <div class="product-configuration">
+
+      <!-- genre -->
+      <div class="genre">
+        <span>Genres</span>
+        <div class="genre-items">
+          <span *ngFor="let genre of movie?.genres">{{genre}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-price">
+      <a href="#" class="viewed-btn" (click)="handleMovieViewEvent(movie?.id, movie?.title)">Mark as Viewed</a>
+    </div>
+  </div>
+</main>
